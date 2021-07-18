@@ -1,0 +1,39 @@
+diff --git a/src/components/battery/BatteryController.h b/src/components/battery/BatteryController.h
+index 04bcf6b..f2f56a5 100644
+--- a/src/components/battery/BatteryController.h
++++ b/src/components/battery/BatteryController.h
+@@ -68,7 +68,7 @@ namespace Pinetime {
+       static constexpr uint8_t percentRemainingSamples = 5;
+       CircBuffer<percentRemainingSamples> percentRemainingBuffer {};
+ 
+-      static constexpr uint32_t chargingPin = 12;
++      static constexpr uint32_t chargingPin = 19;
+       static constexpr uint32_t powerPresentPin = 19;
+       static constexpr nrf_saadc_input_t batteryVoltageAdcInput = NRF_SAADC_INPUT_AIN7;
+       float voltage = 0.0f;
+diff --git a/src/drivers/Cst816s.h b/src/drivers/Cst816s.h
+index 14c296e..22e482a 100644
+--- a/src/drivers/Cst816s.h
++++ b/src/drivers/Cst816s.h
+@@ -40,7 +40,7 @@ namespace Pinetime {
+ 
+     private:
+       static constexpr uint8_t pinIrq = 28;
+-      static constexpr uint8_t pinReset = 10;
++      static constexpr uint8_t pinReset = 13;
+       static constexpr uint8_t lastTouchId = 0x0f;
+       static constexpr uint8_t touchPointNumIndex = 2;
+       static constexpr uint8_t touchMiscIndex = 8;
+diff --git a/src/systemtask/SystemTask.h b/src/systemtask/SystemTask.h
+index fa6a949..3fd6828 100644
+--- a/src/systemtask/SystemTask.h
++++ b/src/systemtask/SystemTask.h
+@@ -112,7 +112,7 @@ namespace Pinetime {
+       static constexpr uint8_t pinSpiMiso = 4;
+       static constexpr uint8_t pinSpiCsn = 25;
+       static constexpr uint8_t pinLcdDataCommand = 18;
+-      static constexpr uint8_t pinButton = 13;
++      static constexpr uint8_t pinButton = 17;
+       static constexpr uint8_t pinTouchIrq = 28;
+       static constexpr uint8_t pinPowerPresentIrq = 19;
+ 
