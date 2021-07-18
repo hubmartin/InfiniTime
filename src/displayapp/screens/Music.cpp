@@ -54,7 +54,7 @@ Music::Music(Pinetime::Applications::DisplayApp* app, Pinetime::Controllers::Mus
   btnVolDown->user_data = this;
   lv_obj_set_event_cb(btnVolDown, event_handler);
   lv_obj_set_size(btnVolDown, 65, 75);
-  lv_obj_align(btnVolDown, nullptr, LV_ALIGN_IN_BOTTOM_LEFT, 15, -10);
+  lv_obj_align(btnVolDown, nullptr, LV_ALIGN_IN_BOTTOM_LEFT, 0, 0);
   lv_obj_set_style_local_radius(btnVolDown, LV_BTN_PART_MAIN, LV_STATE_DEFAULT, 20);
   lv_obj_set_style_local_bg_color(btnVolDown, LV_BTN_PART_MAIN, LV_STATE_DEFAULT, LV_COLOR_AQUA);
   lv_obj_set_style_local_bg_opa(btnVolDown, LV_BTN_PART_MAIN, LV_STATE_DEFAULT, LV_OPA_20);
@@ -66,7 +66,7 @@ Music::Music(Pinetime::Applications::DisplayApp* app, Pinetime::Controllers::Mus
   btnVolUp->user_data = this;
   lv_obj_set_event_cb(btnVolUp, event_handler);
   lv_obj_set_size(btnVolUp, 65, 75);
-  lv_obj_align(btnVolUp, nullptr, LV_ALIGN_IN_BOTTOM_RIGHT, -15, -10);
+  lv_obj_align(btnVolUp, nullptr, LV_ALIGN_IN_BOTTOM_RIGHT, 0, 0);
   lv_obj_set_style_local_radius(btnVolUp, LV_BTN_PART_MAIN, LV_STATE_DEFAULT, 20);
   lv_obj_set_style_local_bg_color(btnVolUp, LV_BTN_PART_MAIN, LV_STATE_DEFAULT, LV_COLOR_AQUA);
   lv_obj_set_style_local_bg_opa(btnVolUp, LV_BTN_PART_MAIN, LV_STATE_DEFAULT, LV_OPA_20);
@@ -78,7 +78,7 @@ Music::Music(Pinetime::Applications::DisplayApp* app, Pinetime::Controllers::Mus
   btnPrev->user_data = this;
   lv_obj_set_event_cb(btnPrev, event_handler);
   lv_obj_set_size(btnPrev, 65, 75);
-  lv_obj_align(btnPrev, nullptr, LV_ALIGN_IN_BOTTOM_LEFT, 15, -10);
+  lv_obj_align(btnPrev, nullptr, LV_ALIGN_IN_BOTTOM_LEFT, 0, 0);
   lv_obj_set_style_local_radius(btnPrev, LV_BTN_PART_MAIN, LV_STATE_DEFAULT, 20);
   lv_obj_set_style_local_bg_color(btnPrev, LV_BTN_PART_MAIN, LV_STATE_DEFAULT, LV_COLOR_AQUA);
   lv_obj_set_style_local_bg_opa(btnPrev, LV_BTN_PART_MAIN, LV_STATE_DEFAULT, LV_OPA_20);
@@ -89,7 +89,7 @@ Music::Music(Pinetime::Applications::DisplayApp* app, Pinetime::Controllers::Mus
   btnNext->user_data = this;
   lv_obj_set_event_cb(btnNext, event_handler);
   lv_obj_set_size(btnNext, 65, 75);
-  lv_obj_align(btnNext, nullptr, LV_ALIGN_IN_BOTTOM_RIGHT, -15, -10);
+  lv_obj_align(btnNext, nullptr, LV_ALIGN_IN_BOTTOM_RIGHT, 0, 0);
   lv_obj_set_style_local_radius(btnNext, LV_BTN_PART_MAIN, LV_STATE_DEFAULT, 20);
   lv_obj_set_style_local_bg_color(btnNext, LV_BTN_PART_MAIN, LV_STATE_DEFAULT, LV_COLOR_AQUA);
   lv_obj_set_style_local_bg_opa(btnNext, LV_BTN_PART_MAIN, LV_STATE_DEFAULT, LV_OPA_20);
@@ -100,7 +100,7 @@ Music::Music(Pinetime::Applications::DisplayApp* app, Pinetime::Controllers::Mus
   btnPlayPause->user_data = this;
   lv_obj_set_event_cb(btnPlayPause, event_handler);
   lv_obj_set_size(btnPlayPause, 65, 75);
-  lv_obj_align(btnPlayPause, nullptr, LV_ALIGN_IN_BOTTOM_MID, 0, -10);
+  lv_obj_align(btnPlayPause, nullptr, LV_ALIGN_IN_BOTTOM_MID, 0, 0);
   lv_obj_set_style_local_radius(btnPlayPause, LV_BTN_PART_MAIN, LV_STATE_DEFAULT, 20);
   lv_obj_set_style_local_bg_color(btnPlayPause, LV_BTN_PART_MAIN, LV_STATE_DEFAULT, LV_COLOR_AQUA);
   lv_obj_set_style_local_bg_opa(btnPlayPause, LV_BTN_PART_MAIN, LV_STATE_DEFAULT, LV_OPA_20);
@@ -292,11 +292,13 @@ bool Music::OnTouchEvent(Pinetime::Applications::TouchEvents event) {
       return true;
     }
     case TouchEvents::SwipeLeft: {
-      musicService.event(Controllers::MusicService::EVENT_MUSIC_NEXT);
+      //musicService.event(Controllers::MusicService::EVENT_MUSIC_NEXT);
+      musicService.event(Controllers::MusicService::EVENT_MUSIC_PAUSE);
       return true;
     }
     case TouchEvents::SwipeRight: {
-      musicService.event(Controllers::MusicService::EVENT_MUSIC_PREV);
+      //musicService.event(Controllers::MusicService::EVENT_MUSIC_PREV);
+      musicService.event(Controllers::MusicService::EVENT_MUSIC_PLAY);
       return true;
     }
     default: {
